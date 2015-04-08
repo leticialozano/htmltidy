@@ -22,10 +22,10 @@ var tidyExec = chooseExec();
 
 function TidyWorker(opts) {
   Stream.call(this);
-  
+
   // Store a reference to the merged options for consumption by error reporting logic
   var mergedOpts = merge(opts, DEFAULT_OPTS);
-  
+
   this.writable= true;
   this.readable= true;
   this._worker = spawn(tidyExec, parseOpts(mergedOpts));
@@ -62,9 +62,9 @@ function TidyWorker(opts) {
         }
         break;
     }
-    
+
     self.emit('end');
-    
+
   });
 }
 
@@ -139,7 +139,7 @@ function chooseExec() {
       tidyExe = path.join('win32','tidy.exe');
       break;
     case 'linux':
-      tidyExe = path.join('linux', 'tidy');
+      tidyExe = path.join('linux', 'tidy5');
       break;
     case 'darwin':
       tidyExe = path.join('darwin', 'tidy');
